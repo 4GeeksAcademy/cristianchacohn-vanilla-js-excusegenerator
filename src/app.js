@@ -1,5 +1,3 @@
-const paragraph = document.querySelector("#excuse");
-
 function excuseGenerator(paragraph) {
   let who = ["The dog", "My grandma", "The mailman", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
@@ -12,11 +10,19 @@ function excuseGenerator(paragraph) {
     "while I was praying"
   ];
 
-  paragraph.textContent = `${who[Math.floor(Math.random() * who.length)]} ${
-    action[Math.floor(Math.random() * action.length)]
-  } ${what[Math.floor(Math.random() * what.length)]} ${
-    when[Math.floor(Math.random() * when.length)]
-  }`;
+  // Uso template literals
+  let randomWho = who[Math.floor(Math.random() * who.length)];
+  let randomAction = action[Math.floor(Math.random() * action.length)];
+  let randomWhat = what[Math.floor(Math.random() * what.length)];
+  let randomWhen = when[Math.floor(Math.random() * when.length)];
+
+  // Construcción final usando una template literal
+  let excuse = `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
+
+  // Asigno la excusa generada al párrafo
+  paragraph.textContent = excuse;
 }
 
+// Asigno el contenido generado al párrafo
+const paragraph = document.querySelector("#excuse");
 excuseGenerator(paragraph);
